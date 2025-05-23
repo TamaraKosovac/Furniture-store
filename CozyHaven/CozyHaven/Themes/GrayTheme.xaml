@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <BitmapImage x:Key="LoginBackgroundImage" UriSource="/Images/gray.png"/>
+    <BitmapImage x:Key="LogoImage" UriSource="/Images/logoWhite.png"/>
+    <SolidColorBrush x:Key="BorderBackground" Color="#E5E5E5"/>
+    <SolidColorBrush x:Key="PrimaryBackground" Color="LightGray"/>
+    <SolidColorBrush x:Key="PrimaryForeground" Color="Black"/>
+    <SolidColorBrush x:Key="EyeColor" Color="Gray"/>
+    <SolidColorBrush x:Key="ButtonBackground" Color="#696969"/>
+    <SolidColorBrush x:Key="ButtonForeground" Color="White"/>
+    <SolidColorBrush x:Key="ButtonBackgroundHover" Color="Gray"/>
+    <SolidColorBrush x:Key="ButtonBackgroundPressed" Color="Gray"/>
+    <SolidColorBrush x:Key="ButtonBorderBrush" Color="#696969"/>
+    <SolidColorBrush x:Key="MenuForeground" Color="white"/>
+    <SolidColorBrush x:Key="MenuBackground" Color="#696969"/>
+    <SolidColorBrush x:Key="Background" Color="LightGray"/>
+    <SolidColorBrush x:Key="SettingsCard" Color="#F3F3F3"/>
+    <SolidColorBrush x:Key="SettingsCardHeader" Color="#696969"/>
+    <SolidColorBrush x:Key="EmployeeCard" Color="#EDEDED"/>
+    <SolidColorBrush x:Key="BillIssueCard" Color="LightGray"/>
+
+</ResourceDictionary>

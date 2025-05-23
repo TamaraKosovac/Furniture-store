@@ -1,0 +1,33 @@
+﻿
+namespace CozyHaven.Models
+{
+    public class Category
+    {
+        public int Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public ICollection<Product> Products { get; set; } = new List<Product>();
+        public string IconKind
+        {
+            get
+            {
+                return Name switch
+                {
+                    "Dnevna soba" => "SofaOutline",
+                    "Spavaća soba" => "Bed",
+                    "Kuhinja" => "Stove", 
+                    "Kupatilo" => "Shower",
+                    "Trpezarija" => "TableFurniture",
+                    "Hodnik" => "DoorOpen",
+                    "Radna soba" => "ChairRolling",
+                    "Dječija soba" => "TeddyBear",
+                    "Baštenski namještaj" => "PineTree", 
+                    "Kancelarijski namještaj" => "Desk",
+                    "Ormari i plakari" => "WardrobeOutline",
+                    "Stolovi i stolice" => "TableChair",
+                    "Dekoracije" => "Lamps", 
+                    _ => "Tag" 
+                };
+            }
+        }
+    }
+}

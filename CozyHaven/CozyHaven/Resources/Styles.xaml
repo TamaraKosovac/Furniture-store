@@ -1,0 +1,315 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                    xmlns:local="clr-namespace:CozyHaven" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes">
+
+    <sys:Double x:Key="WindowHeight">700</sys:Double>
+    <sys:Double x:Key="WindowWidth">900</sys:Double>
+    <sys:Double x:Key="MenuWidth">200</sys:Double>
+    <CornerRadius x:Key="BorderCornerRadius">16</CornerRadius>
+    <Thickness x:Key="PaddingBorder">40</Thickness>
+    <Thickness x:Key="BorderMargin">20,40,20,40</Thickness>
+    <sys:Double x:Key="ImageHeight">50</sys:Double>
+    <sys:Double x:Key="TitleFontSize">30</sys:Double>
+    <sys:Double x:Key="DescFontSize">15</sys:Double>
+    <Thickness x:Key="DescMargin">0,0,10,60</Thickness>
+    <sys:Double x:Key="FooterFontSize">10</sys:Double>
+    <Thickness x:Key="FooterMargin">0,0,135,15</Thickness>
+    <Thickness x:Key="PasswordMargin">0</Thickness>
+    <Thickness x:Key="StackPanelMarginFirst">0,0,0,10</Thickness>
+    <Thickness x:Key="StackPanelMarginSecond">0,10</Thickness>
+    <sys:Double x:Key="ButtonHeight">28</sys:Double>
+    <sys:Double x:Key="EyeHeight">20</sys:Double>
+    <Thickness x:Key="EyeBorderThickness">0</Thickness>
+    <Thickness x:Key="EyeMargin">0,15,5,0</Thickness>
+    <Thickness x:Key="LogoutMargin">15 25</Thickness>
+    <sys:Double x:Key="TitleOnMenuFontSize">16</sys:Double>
+    <Thickness x:Key="TitleOnMenuMargin">0,0,0,50</Thickness>
+    <Thickness x:Key="ImageOnMenuMargin">0,20,0,0</Thickness>
+    <sys:Double x:Key="ImageOnMenuHeight">60</sys:Double>
+    <sys:Double x:Key="DescOnMenuFontSize">12</sys:Double>
+    <sys:Double x:Key="MessageBoxFontSize">18</sys:Double>
+    <CornerRadius x:Key="MessageBoxCornerRadius">8</CornerRadius>
+    <Thickness x:Key="MessageBoxBorderThickness">2</Thickness>
+    <Thickness x:Key="HeaderBorder">15</Thickness>
+    <Thickness x:Key="HeaderMargin">10,0,0,0</Thickness>
+    <Thickness x:Key="SettingsMargin">0,0,0,8</Thickness>
+    <Thickness x:Key="StackPanelSettingsMargin">10,20,0,0</Thickness>
+    <Thickness x:Key="SettingsPadding">15</Thickness>
+    <CornerRadius x:Key="SettingsCornerRadius">3</CornerRadius>
+    <sys:Double x:Key="SettingsFontSize">16</sys:Double>
+    <Thickness x:Key="SettingsIconMargin">0,0,8,0</Thickness>
+    <sys:Double x:Key="SettingsCardHeight">615</sys:Double>
+    <SolidColorBrush x:Key="FormForeground" Color="White"/>
+    <Thickness x:Key="AdminStackPanelMargin">10</Thickness>
+    <Thickness x:Key="AdminPadding">10</Thickness>
+    <Thickness x:Key="AdminThickness">1</Thickness>
+    <CornerRadius x:Key="AdminCornerRadius">12</CornerRadius>
+    <Thickness x:Key="AdminCancelMargin">0,10,10,0</Thickness>
+    <Thickness x:Key="AdminStackPanelButtonMargin">0,10,0,0</Thickness>
+    <Thickness x:Key="CardFirstPadding">20</Thickness>
+    <Thickness x:Key="CardSecondPadding">16</Thickness>
+    <Thickness x:Key="CardMargin">0,0,0,20</Thickness>
+    <sys:Double x:Key="SearchWidth">250</sys:Double>
+    <sys:Double x:Key="SearcIconDimension">16</sys:Double>
+    <sys:Double x:Key="CalendarButton">36</sys:Double>
+    <Thickness x:Key="CalendarButtonMargin">0,28,8,8</Thickness>
+    <CornerRadius x:Key="CalendarCornerRadius">6</CornerRadius>
+    <Thickness x:Key="PictureButtonMargin">0,20,8,8</Thickness>
+    <Thickness x:Key="CategoryComboBoxMargin">0,28,0,8</Thickness>
+    <Thickness x:Key="CategoryComboBoxPadding">2,0,2,4</Thickness>
+    <Thickness x:Key="CalendarMargin">0,3</Thickness>
+    <sys:Double x:Key="CategoryComboBoxWidth">420</sys:Double>
+    <sys:Double x:Key="BorderWidth">32</sys:Double>
+    <CornerRadius x:Key="BorderBillCornerRadius">16</CornerRadius>
+    <Thickness x:Key="CategoryBorderMargin">8</Thickness>
+    <sys:Double x:Key="CloseButtonHeight">22</sys:Double>
+    <Thickness x:Key="BillStackPanelMargin">20</Thickness>
+    <Thickness x:Key="CheckCircleMargin">13,0,0,10</Thickness>
+    <sys:Double x:Key="FilterComboBoxWidth">330</sys:Double>
+    <sys:Double x:Key="BillCardWidth">400</sys:Double>
+    <Thickness x:Key="BillsMargin">6</Thickness>
+    <sys:Double x:Key="BillIconHeight">40</sys:Double>
+    <CornerRadius x:Key="BillCornerRadius">20</CornerRadius>
+    <Thickness x:Key="BillMargin">0,0,10,0</Thickness>
+    <sys:Double x:Key="BillFontSize">14</sys:Double>
+    <sys:Double x:Key="BillInfoFontSize">13</sys:Double>
+    <Thickness x:Key="BillGridMargin">0,4</Thickness>
+    <Thickness x:Key="TextBlockBillMargin">300,0,0,0</Thickness>
+    <Thickness x:Key="StackPanelBillMargin">0,0,400,0</Thickness>
+    <Thickness x:Key="SeparatorMargin">0,10,0,10</Thickness>
+    <sys:Double x:Key="AlertCircleWidth">300</sys:Double>
+    <sys:Double x:Key="AlertCircleHeight">100</sys:Double>
+    <Thickness x:Key="TextBlockBillsMargin">5,0,0,0</Thickness>
+    <sys:Double x:Key="EmployeeIconWidth">18</sys:Double>
+    <Thickness x:Key="EmployeeIconMargin">0,0,6,0</Thickness>
+    <sys:Double x:Key="ProductCardWidth">350</sys:Double>
+    <sys:Double x:Key="ProductCardHeight">272</sys:Double>
+    <CornerRadius x:Key="ProductCornerRadius">12,12,0,0</CornerRadius>
+    <sys:Double x:Key="ProductCardBorderHeight">80</sys:Double>
+    <Thickness x:Key="ProductCardBorderPadding">16</Thickness>
+    <sys:Double x:Key="DepartmentComboBoxWidth">420</sys:Double>
+    <Thickness x:Key="DepartmentComboBoxMargin">0,28,0,8</Thickness>
+    <sys:Double x:Key="SearchQueryWidth">330</sys:Double>
+    <Thickness x:Key="CategoriesPadding">8</Thickness>
+    <Thickness x:Key="CategoriesCardMargin">20</Thickness>
+    <Thickness x:Key="CategoriesCardPadding">0</Thickness>
+    <sys:Double x:Key="CategoriesCardWidth">250</sys:Double>
+    <sys:Double x:Key="CategoriesCardHeight">150</sys:Double>
+    <sys:Double x:Key="CategoriesCardBorderHeight">65</sys:Double>
+    <CornerRadius x:Key="CategoriesCornerRadius">10,10,0,0</CornerRadius>
+    <CornerRadius x:Key="CategoriesBorderCornerRadius">10</CornerRadius>
+    <sys:Double x:Key="RectangleWidth">177</sys:Double>
+    <sys:Double x:Key="CategoriesIconWidth">24</sys:Double>
+    <sys:Double x:Key="ProductViewWidth">130</sys:Double>
+    <Thickness x:Key="ProductsViewMargin">0,8</Thickness>
+    <sys:Double x:Key="CloseIconWidth">22</sys:Double>
+    <sys:Double x:Key="RectanglePictureWidth">80</sys:Double>
+    <sys:Double x:Key="IssueBillIconWidth">14</sys:Double>
+    <sys:Double x:Key="IssueBillButtonWidth">26</sys:Double>
+    <Thickness x:Key="BillsViewMargin">0,4,0,0</Thickness>
+
+
+    <Style x:Key="CustomTextBoxStyle" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="materialDesign:HintAssist.Foreground" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="Margin" Value="0,0,0,30"/>
+        <Setter Property="Padding" Value="0,20,0,4"/>
+    </Style>
+
+    <Style x:Key="CustomPasswordBoxStyle" BasedOn="{StaticResource MaterialDesignFloatingHintPasswordBox}" TargetType="PasswordBox">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Height" Value="50"/>
+        <Setter Property="materialDesign:HintAssist.Foreground" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="CaretBrush" Value="{DynamicResource PrimaryForeground}"/>
+        <Setter Property="Margin" Value="0,0,0,25"/>
+        <Setter Property="Padding" Value="0,20,0,4"/>
+    </Style>
+
+    <Style x:Key="SolidLoginButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Padding" Value="10,5"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Height" Value="45"/>
+        <Setter Property="Margin" Value="0,100,0,15"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="10">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          RecognizesAccessKey="True"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ButtonBackgroundHover}" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ButtonBackgroundPressed}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="MenuButton" BasedOn="{StaticResource MaterialDesignFlatButton}" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryForeground}" />
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="400"/>
+        <Setter Property="Margin" Value="15 5"/>
+
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Gray"/>
+            </Trigger>
+            <Trigger Property="Tag" Value="Active">
+                <Setter Property="Background" Value="Gray"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style x:Key="MessageBoxButton"
+       BasedOn="{StaticResource MaterialDesignFlatButton}"
+       TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}" />
+        <Setter Property="Background" Value="{DynamicResource ButtonBackground}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonBorderBrush}"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="80"/>
+        <Setter Property="Margin" Value="15 5"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        CornerRadius="8">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      RecognizesAccessKey="True"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" 
+                                Value="{DynamicResource ButtonBackgroundHover}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" 
+                                Value="{DynamicResource ButtonBackgroundPressed}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter TargetName="border" Property="Opacity" Value="0.5"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="UnderlineComboBoxStyle" 
+       BasedOn="{StaticResource MaterialDesignComboBox}" 
+       TargetType="ComboBox">
+        <Setter Property="Width" Value="150"/>
+        <Setter Property="Margin" Value="30,10,0,0"/>
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Setter Property="materialDesign:HintAssist.IsFloating" Value="False"/>
+        <Setter Property="Padding" Value="2"/>
+    </Style>
+
+    <Style x:Key="FormButtonStyle"
+       TargetType="Button"
+       BasedOn="{x:Null}">
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource SettingsCardHeader}"/>
+        <Setter Property="Padding" Value="20,12"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="MinWidth" Value="80"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="6"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"
+                                      TextElement.Foreground="{TemplateBinding Foreground}" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#F0F0F0"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#E0E0E0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="AdminFormTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource CustomTextBoxStyle}">
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="CaretBrush" Value="White" />
+        <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush" Value="White" />
+        <Setter Property="Margin" Value="0,3" />
+    </Style>
+
+    <Style x:Key="RoundedButtonStyle" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource ButtonBackground}"/>
+        <Setter Property="Foreground" Value="{DynamicResource ButtonForeground}"/>
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Width" Value="90"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border x:Name="border"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="6"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center"
+                                      VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ButtonBackgroundHover}"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="{DynamicResource ButtonBackgroundHover}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>
