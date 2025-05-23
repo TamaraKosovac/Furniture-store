@@ -58,9 +58,9 @@ Administrator ima sljedeće mogućnosti:
 
 - **Odjavu sa profila:**
 
- - Prije odjave administratoru se prikazuje odgovarajuća poruka
+  - Prije odjave administratoru se prikazuje odgovarajuća poruka
 
-   ![screenshot](Screenshots/adminLogout.png)
+    ![screenshot](Screenshots/adminLogout.png)
 
 
 ## Stranica za zaposlene
