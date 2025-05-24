@@ -60,7 +60,7 @@ Administrator ima sljedeće mogućnosti:
 
   - Prije odjave administratoru se prikazuje odgovarajuća poruka
 
-    ![screenshot](Screenshots/adminLogout.png)
+   ![screenshot](Screenshots/adminLogout.png)
 
 
 ## Stranica za zaposlene
@@ -157,4 +157,4 @@ Zaposleni imaju sljedeće mogućnosti:
 
     - Prije odjave zaposlenom se prikazuje odgovarajuća poruka
 
-      ![screenshot](Screenshots/employeeLogout.png)
+    ![screenshot](Screenshots/employeeLogout.png)
