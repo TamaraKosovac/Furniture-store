@@ -35,7 +35,7 @@ CREATE TABLE `__efmigrationshistory` (
 
 LOCK TABLES `__efmigrationshistory` WRITE;
 /*!40000 ALTER TABLE `__efmigrationshistory` DISABLE KEYS */;
-INSERT INTO `__efmigrationshistory` VALUES ('20250508231616_InitialCreate','8.0.13'),('20250510144751_AddUserPreferences','8.0.13'),('20250511214729_AddProfilePictureToUser','8.0.13'),('20250511231142_AddEmploymentDateToUser','8.0.13'),('20250511234745_AddSalaryToUser','8.0.13'),('20250512145155_SetEmploymentDateToDateOnly','8.0.13'),('20250512145743_AddUniqueConstraintToUsername','8.0.13'),('20250512170907_UpdateSalaryPrecision','8.0.13'),('20250512202131_AddPositionToUser','8.0.13'),('20250513133201_AddDepartmentTable','8.0.13'),('20250513133502_AddCashRegisterTable','8.0.13'),('20250513134235_AddDepartmentRelationToUser','8.0.13'),('20250513135743_AddCategoryTable','8.0.13'),('20250514143651_AddProductTable','8.0.13'),('20250514234527_AddSupplierPriceToProduct','8.0.13'),('20250518225150_AddBillItemClass','8.0.13'),('20250518225441_AddBillItemModel','8.0.13'),('20250519130915_SyncWithDatabase','8.0.13'),('20250524170913_AddIsDeletedToProduct','8.0.13'),('20250524175601_SetSupplierPricePrecision','8.0.13'),('20250524183022_AddIsDeletedToUser','8.0.13');
+INSERT INTO `__efmigrationshistory` VALUES ('20250508231616_InitialCreate','8.0.13'),('20250510144751_AddUserPreferences','8.0.13'),('20250511214729_AddProfilePictureToUser','8.0.13'),('20250511231142_AddEmploymentDateToUser','8.0.13'),('20250511234745_AddSalaryToUser','8.0.13'),('20250512145155_SetEmploymentDateToDateOnly','8.0.13'),('20250512145743_AddUniqueConstraintToUsername','8.0.13'),('20250512170907_UpdateSalaryPrecision','8.0.13'),('20250512202131_AddPositionToUser','8.0.13'),('20250513133201_AddDepartmentTable','8.0.13'),('20250513133502_AddCashRegisterTable','8.0.13'),('20250513134235_AddDepartmentRelationToUser','8.0.13'),('20250513135743_AddCategoryTable','8.0.13'),('20250514143651_AddProductTable','8.0.13'),('20250514234527_AddSupplierPriceToProduct','8.0.13'),('20250518225150_AddBillItemClass','8.0.13'),('20250518225441_AddBillItemModel','8.0.13'),('20250519130915_SyncWithDatabase','8.0.13'),('20250524170913_AddIsDeletedToProduct','8.0.13'),('20250524175601_SetSupplierPricePrecision','8.0.13'),('20250524183022_AddIsDeletedToUser','8.0.13'),('20250524194204_AddIsDeletedToCategory','8.0.13');
 /*!40000 ALTER TABLE `__efmigrationshistory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -136,8 +136,9 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `Id` int NOT NULL AUTO_INCREMENT,
   `Name` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `IsDeleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -146,7 +147,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES (1,'Dnevna soba'),(2,'Spavaća soba'),(3,'Kuhinja'),(4,'Kupatilo'),(5,'Trpezarija'),(6,'Hodnik'),(7,'Radna soba'),(8,'Dječija soba'),(9,'Baštenski namještaj'),(11,'Ormari i plakari'),(12,'Stolovi i stolice'),(13,'Dekoracije'),(21,'Kancelarijski namještaj');
+INSERT INTO `categories` VALUES (1,'Dnevna soba',0),(2,'Spavaća soba',0),(3,'Kuhinja',0),(4,'Kupatilo',0),(5,'Trpezarija',0),(6,'Hodnik',0),(7,'Radna soba',0),(8,'Dječija soba',0),(9,'Baštenski namještaj',0),(11,'Ormari i plakari',0),(12,'Stolovi i stolice',0),(13,'Dekoracije',0),(22,'Kancelarijski namještaj',0);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -196,7 +197,7 @@ CREATE TABLE `products` (
   PRIMARY KEY (`Id`),
   KEY `IX_Products_CategoryId` (`CategoryId`),
   CONSTRAINT `FK_Products_Categories_CategoryId` FOREIGN KEY (`CategoryId`) REFERENCES `categories` (`Id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -260,4 +261,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-05-24 20:38:48
+-- Dump completed on 2025-05-24 21:53:58
