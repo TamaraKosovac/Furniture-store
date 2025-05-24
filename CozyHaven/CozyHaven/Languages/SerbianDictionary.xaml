@@ -96,5 +96,6 @@
     <sys:String x:Key="BillEmpty">Nema stavki za izdavanje računa</sys:String>
     <sys:String x:Key="BillNotFound">Račun nije pronađen</sys:String>
     <sys:String x:Key="Date">Datum:</sys:String>
+    <sys:String x:Key="CannotDeleteProductInBill">Ne možete obrisati ovaj proizvod</sys:String>
 
 </ResourceDictionary>

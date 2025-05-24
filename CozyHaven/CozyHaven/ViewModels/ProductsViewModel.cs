@@ -271,6 +271,19 @@ namespace CozyHaven.ViewModels
                 if (dialog.ShowDialog() == true)
                 {
                     using var context = new AppDbContext();
+
+                    bool isOnBill = context.BillItems.Any(b => b.ProductId == product.Id);
+                    if (isOnBill)
+                    {
+                        string errorMessage = string.Format(
+                            TryFindLocalizedString("CannotDeleteProductInBill"), product.Name);
+
+                        var errorDialog = new MessageBoxView(errorMessage);
+                        errorDialog.Owner = Application.Current.MainWindow;
+                        errorDialog.ShowDialog();
+                        return;
+                    }
+
                     var entity = context.Products.Find(product.Id);
                     if (entity != null)
                     {
