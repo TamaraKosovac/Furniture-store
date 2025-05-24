@@ -73,6 +73,10 @@ namespace CozyHaven.Data
                 .HasMaxLength(100)
                 .IsRequired();
 
+            modelBuilder.Entity<Category>()
+                .Property(c => c.IsDeleted)
+                .HasDefaultValue(false);
+
             modelBuilder.Entity<Product>()
                 .Property(p => p.Price)
                 .HasColumnType("decimal(10,2)");

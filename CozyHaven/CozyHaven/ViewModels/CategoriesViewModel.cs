@@ -2,6 +2,7 @@
 using CozyHaven.Helpers;
 using CozyHaven.Models;
 using CozyHaven.Views;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
@@ -43,7 +44,10 @@ namespace CozyHaven.ViewModels
         public void LoadCategories()
         {
             using var context = new AppDbContext();
-            var categories = context.Categories.ToList();
+
+            var categories = context.Categories
+                .Where(c => !c.IsDeleted)
+                .ToList();
 
             _allCategories = new ObservableCollection<Category>(categories);
             ApplySearchFilter();
@@ -84,10 +88,21 @@ namespace CozyHaven.ViewModels
                 if (result == true)
                 {
                     using var context = new AppDbContext();
-                    var entity = context.Categories.FirstOrDefault(c => c.Id == category.Id);
+
+                    var entity = context.Categories
+                        .Where(c => c.Id == category.Id)
+                        .Include(c => c.Products) 
+                        .FirstOrDefault();
+
                     if (entity != null)
                     {
-                        context.Categories.Remove(entity);
+                        entity.IsDeleted = true;
+
+                        foreach (var product in entity.Products)
+                        {
+                            product.IsDeleted = true;
+                        }
+
                         context.SaveChanges();
 
                         new MessageBoxView(

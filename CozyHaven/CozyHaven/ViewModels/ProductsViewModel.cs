@@ -144,7 +144,9 @@ namespace CozyHaven.ViewModels
         private void LoadCategories()
         {
             using var context = new AppDbContext();
-            var categories = context.Categories.ToList();
+            var categories = context.Categories
+                .Where(c => !c.IsDeleted)
+                .ToList();
 
             FilterOptions.Clear();
             FilterOptions.Add(new Category { Id = 0, Name = "Sve kategorije" });
@@ -213,7 +215,11 @@ namespace CozyHaven.ViewModels
             using var context = new AppDbContext();
 
             var products = context.Products
-                .Where(p => !p.IsDeleted && (SelectedFilter == null || SelectedFilter.Id == 0 || p.CategoryId == SelectedFilter.Id))
+                .Include(p => p.Category)
+                .Where(p =>
+                    !p.IsDeleted &&
+                    !p.Category.IsDeleted &&
+                    (SelectedFilter == null || SelectedFilter.Id == 0 || p.CategoryId == SelectedFilter.Id))
                 .Select(p => new Product
                 {
                     Id = p.Id,
@@ -225,7 +231,7 @@ namespace CozyHaven.ViewModels
                     Description = p.Description,
                     ImagePath = p.ImagePath,
                     CategoryId = p.CategoryId,
-                    Category = context.Categories.FirstOrDefault(c => c.Id == p.CategoryId) ?? new Category { Name = "Nepoznata" }
+                    Category = p.Category
                 })
                 .ToList();
 
