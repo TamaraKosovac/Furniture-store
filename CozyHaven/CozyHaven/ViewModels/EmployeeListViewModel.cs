@@ -47,7 +47,7 @@ namespace CozyHaven.ViewModels
 
             var employeesFromDb = context.Users
                 .Include(u => u.Department)
-                .Where(u => u.Role == "employee")
+                .Where(u => u.Role == "employee" && !u.IsDeleted)
                 .ToList();
 
             _allEmployees.Clear();
@@ -84,7 +84,7 @@ namespace CozyHaven.ViewModels
                     var toDelete = context.Users.FirstOrDefault(u => u.Id == user.Id);
                     if (toDelete != null)
                     {
-                        context.Users.Remove(toDelete);
+                        toDelete.IsDeleted = true;
                         context.SaveChanges();
                         _allEmployees.Remove(user);
                         FilteredEmployees.Remove(user);
@@ -97,6 +97,7 @@ namespace CozyHaven.ViewModels
                 }
             }
         }
+
 
         private void UpdateEmployee(object obj)
         {

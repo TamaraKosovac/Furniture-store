@@ -20,5 +20,6 @@ namespace CozyHaven.Models
         public decimal Salary { get; set; } = 0m;
         public int? DepartmentId { get; set; }  
         public Department? Department { get; set; }
+        public bool IsDeleted { get; set; } = false;
     }
 }

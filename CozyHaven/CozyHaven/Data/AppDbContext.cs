@@ -42,6 +42,10 @@ namespace CozyHaven.Data
                 .IsUnique();
 
             modelBuilder.Entity<User>()
+                .Property(u => u.IsDeleted)
+                .HasDefaultValue(false);
+
+            modelBuilder.Entity<User>()
                 .Property(u => u.Salary)
                 .HasColumnType("decimal(10,2)");
 
