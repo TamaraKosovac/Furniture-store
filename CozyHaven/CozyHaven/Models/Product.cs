@@ -12,6 +12,7 @@
         public string Description { get; set; } = string.Empty;
         public string? ImagePath { get; set; }
         public decimal SupplierPrice { get; set; }
+        public bool IsDeleted { get; set; } = false;
 
     }
 }

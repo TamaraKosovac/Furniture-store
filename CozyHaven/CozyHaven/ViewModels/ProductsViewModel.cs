@@ -213,7 +213,7 @@ namespace CozyHaven.ViewModels
             using var context = new AppDbContext();
 
             var products = context.Products
-                .Where(p => SelectedFilter == null || SelectedFilter.Id == 0 || p.CategoryId == SelectedFilter.Id)
+                .Where(p => !p.IsDeleted && (SelectedFilter == null || SelectedFilter.Id == 0 || p.CategoryId == SelectedFilter.Id))
                 .Select(p => new Product
                 {
                     Id = p.Id,
@@ -272,22 +272,10 @@ namespace CozyHaven.ViewModels
                 {
                     using var context = new AppDbContext();
 
-                    bool isOnBill = context.BillItems.Any(b => b.ProductId == product.Id);
-                    if (isOnBill)
-                    {
-                        string errorMessage = string.Format(
-                            TryFindLocalizedString("CannotDeleteProductInBill"), product.Name);
-
-                        var errorDialog = new MessageBoxView(errorMessage);
-                        errorDialog.Owner = Application.Current.MainWindow;
-                        errorDialog.ShowDialog();
-                        return;
-                    }
-
                     var entity = context.Products.Find(product.Id);
                     if (entity != null)
                     {
-                        context.Products.Remove(entity);
+                        entity.IsDeleted = true;
                         context.SaveChanges();
                         LoadProducts();
 
@@ -301,6 +289,7 @@ namespace CozyHaven.ViewModels
                 }
             }
         }
+
 
         private void ViewProduct(object parameter)
         {
@@ -534,7 +523,7 @@ namespace CozyHaven.ViewModels
         }
 
         public event PropertyChangedEventHandler? PropertyChanged;
-        public IEnumerable<Product> AvailableProducts => Products.Where(p => p.AvailableQuantity > 0);
+        public IEnumerable<Product> AvailableProducts => Products.Where(p => !p.IsDeleted && p.AvailableQuantity > 0);
 
         protected void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {

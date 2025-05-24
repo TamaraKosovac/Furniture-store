@@ -96,6 +96,5 @@
     <sys:String x:Key="BillEmpty">There are no items to issue</sys:String>
     <sys:String x:Key="BillNotFound">The bill was not found</sys:String>
     <sys:String x:Key="Date">Date:</sys:String>
-    <sys:String x:Key="CannotDeleteProductInBill">Cannot delete this product</sys:String>
 
 </ResourceDictionary>

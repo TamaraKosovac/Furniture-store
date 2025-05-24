@@ -79,6 +79,10 @@ namespace CozyHaven.Data
                 .IsRequired();
 
             modelBuilder.Entity<Product>()
+                .Property(p => p.IsDeleted)
+                .HasDefaultValue(false);
+
+            modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)
                 .HasForeignKey(p => p.CategoryId)
