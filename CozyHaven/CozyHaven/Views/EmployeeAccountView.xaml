@@ -50,7 +50,7 @@
                       SelectedItem="{Binding SelectedDepartment, Mode=TwoWay}"
                       DisplayMemberPath="Name"
                       SelectedValuePath="Id"
-                      materialDesign:HintAssist.Hint="Department"
+                      materialDesign:HintAssist.Hint="{DynamicResource Department}"
                       Margin="{DynamicResource DepartmentComboBoxMargin}"
                       Padding="{DynamicResource CategoryComboBoxPadding}"
                       Foreground="{DynamicResource FormForeground}"
