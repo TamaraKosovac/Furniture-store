@@ -74,6 +74,11 @@ namespace CozyHaven.Data
                 .HasColumnType("decimal(10,2)");
 
             modelBuilder.Entity<Product>()
+                .Property(p => p.SupplierPrice)
+                .HasColumnType("decimal(10,2)");
+
+
+            modelBuilder.Entity<Product>()
                 .Property(p => p.Name)
                 .HasMaxLength(100)
                 .IsRequired();
