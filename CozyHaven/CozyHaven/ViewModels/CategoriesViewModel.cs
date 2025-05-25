@@ -104,12 +104,12 @@ namespace CozyHaven.ViewModels
                         }
 
                         context.SaveChanges();
+                        LoadCategories();
 
                         new MessageBoxView(
                             Application.Current.TryFindResource("CategoryDeleted") as string ?? "Kategorija je obrisana."
                         ).ShowDialog();
 
-                        LoadCategories();
                     }
                 }
             }

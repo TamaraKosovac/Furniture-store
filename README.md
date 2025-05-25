@@ -86,6 +86,8 @@ Zaposleni imaju sljedeće mogućnosti:
 
    ![screenshot](Screenshots/categoryDelete.png)
 
+   ![screenshot](Screenshots/categoryDeleted.png)
+
    ![screenshot](Screenshots/categorySearch.png)
 
    ![screenshot](Screenshots/categoryNoResultOfSearch.png)
