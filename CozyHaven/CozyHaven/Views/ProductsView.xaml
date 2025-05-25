@@ -108,11 +108,10 @@
                                                                              VerticalAlignment="Top"
                                                                              Width="{DynamicResource BorderWidth}"
                                                                              Height="{DynamicResource BorderWidth}"
-                                                                             Background="Transparent"
+                                                                             PopupUniformCornerRadius="10"
                                                                              Foreground="{DynamicResource FormForeground}">
                                                         <materialDesign:PopupBox.PopupContent>
-                                                            <Border Background="{DynamicResource SettingsCard}"
-                                                                    CornerRadius="10"
+                                                            <Border Background="Transparent"
                                                                     Padding="8">
                                                                 <StackPanel>
                                                                     <Button Style="{StaticResource MaterialDesignFlatButton}"

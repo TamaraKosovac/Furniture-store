@@ -112,12 +112,12 @@
                                                     <materialDesign:PopupBox Grid.Column="1"
                                                                              HorizontalAlignment="Right"
                                                                              VerticalAlignment="Top"
-                                                                             Width="{DynamicResource BorderWidth}" Height="{DynamicResource BorderWidth}"
-                                                                             Background="Transparent"
+                                                                             Width="{DynamicResource BorderWidth}" 
+                                                                             Height="{DynamicResource BorderWidth}"
+                                                                             PopupUniformCornerRadius="10"
                                                                              Foreground="{DynamicResource FormForeground}">
                                                         <materialDesign:PopupBox.PopupContent>
-                                                            <Border Background="{DynamicResource SettingsCard}" 
-                                                                    CornerRadius="10" 
+                                                            <Border Background="Transparent"
                                                                     Padding="8">
                                                                 <StackPanel>
                                                                     <Button Style="{StaticResource MaterialDesignFlatButton}"

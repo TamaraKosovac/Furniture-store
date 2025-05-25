@@ -94,7 +94,6 @@
                         <materialDesign:PackIcon Kind="ViewList" Width="{DynamicResource CategoriesIconWidth}" Height="{DynamicResource CategoriesIconWidth}" Margin="{DynamicResource BillMargin}" VerticalAlignment="Center" Foreground="{DynamicResource FormForeground}"/>
                         <TextBlock Text="{DynamicResource ProductCategory}" FontWeight="Bold" FontSize="{DynamicResource BillFontSize}" Margin="{DynamicResource EmployeeIconMargin}" Foreground="{DynamicResource FormForeground}"/>
                         <TextBlock Text="{Binding Category.Name}" FontSize="{DynamicResource BillFontSize}" Foreground="{DynamicResource FormForeground}"/>
-                        
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" Margin="{DynamicResource ProductsViewMargin}">
                         <materialDesign:PackIcon Kind="TextBox" Width="{DynamicResource CategoriesIconWidth}" Height="{DynamicResource CategoriesIconWidth}" Margin="{DynamicResource BillMargin}" VerticalAlignment="Top" Foreground="{DynamicResource FormForeground}"/>
