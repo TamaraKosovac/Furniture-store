@@ -92,7 +92,7 @@
                 <TextBox Text="{Binding Description, UpdateSourceTrigger=PropertyChanged}"
                          materialDesign:HintAssist.Hint="{DynamicResource ProductDescription}"
                          Style="{StaticResource AdminFormTextBoxStyle}" 
-                         Margin="2,0,0,7"/>
+                         Margin="2,0,0,10"/>
 
                 <Grid>
                     <TextBox Text="{Binding ImagePath, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
