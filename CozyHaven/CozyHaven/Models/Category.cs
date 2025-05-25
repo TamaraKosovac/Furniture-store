@@ -17,14 +17,11 @@ namespace CozyHaven.Models
                     "Spavaća soba" => "Bed",
                     "Kuhinja" => "Stove", 
                     "Kupatilo" => "Shower",
-                    "Trpezarija" => "TableFurniture",
                     "Hodnik" => "DoorOpen",
                     "Radna soba" => "ChairRolling",
                     "Dječija soba" => "TeddyBear",
                     "Baštenski namještaj" => "PineTree", 
                     "Kancelarijski namještaj" => "Desk",
-                    "Ormari i plakari" => "WardrobeOutline",
-                    "Stolovi i stolice" => "TableChair",
                     "Dekoracije" => "Lamps", 
                     _ => "Tag" 
                 };
