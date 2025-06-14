@@ -1,0 +1,226 @@
+﻿<UserControl x:Class="CozyHaven.Views.BillsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:CozyHaven.Views"
+             xmlns:helpers="clr-namespace:CozyHaven.Helpers"
+             xmlns:vm="clr-namespace:CozyHaven.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <helpers:PaymentMethodToLocalizedStringConverter x:Key="PaymentMethodConverter"/>
+    </UserControl.Resources>
+
+    <UserControl.DataContext>
+        <vm:BillsViewModel/>
+    </UserControl.DataContext>
+
+    <StackPanel>
+        <Border Background="{DynamicResource SettingsCardHeader}" 
+                CornerRadius="{DynamicResource SettingsCornerRadius}"
+                Padding="{DynamicResource SettingsPadding}"
+                Margin="{DynamicResource SettingsMargin}">
+            <TextBlock Text="{DynamicResource Bills}"
+                       Foreground="{DynamicResource ButtonForeground}"
+                       FontSize="{DynamicResource SettingsFontSize}"
+                       FontWeight="Bold"/>
+        </Border>
+
+        <materialDesign:Card Margin="{DynamicResource ImageOnMenuMargin}"
+                             Background="{DynamicResource SettingsCard}"
+                             Height="{DynamicResource SettingsCardHeight}"
+                             Padding="{DynamicResource CardFirstPadding}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <materialDesign:Card Grid.Row="0"
+                         Background="{DynamicResource EmployeeCard}"
+                         Padding="{DynamicResource CardSecondPadding}"
+                         Margin="{DynamicResource CardMargin}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0"/>
+                        <DatePicker Grid.Column="1"
+                                SelectedDate="{Binding SelectedFilter, Mode=TwoWay}"
+                                DisplayDateStart="2020-01-01"
+                                Width="{DynamicResource BillCardWidth}"
+                                Style="{StaticResource MaterialDesignOutlinedDatePicker}"
+                                FontSize="{DynamicResource DescOnMenuFontSize}"
+                                Padding="{DynamicResource AdminPadding}"
+                                Margin="{DynamicResource AdminCancelMargin}"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Center"
+                                materialDesign:HintAssist.Hint="{DynamicResource FilterByDate}"
+                                materialDesign:TextFieldAssist.HasLeadingIcon="True"
+                                materialDesign:TextFieldAssist.LeadingIcon="CalendarMonth"
+                                materialDesign:TextFieldAssist.LeadingIconSize="{DynamicResource SearcIconDimension}" />
+                                </Grid>
+                </materialDesign:Card>
+
+                <ScrollViewer Grid.Row="1"
+                              VerticalScrollBarVisibility="Auto"
+                              Margin="{DynamicResource AdminStackPanelButtonMargin}">
+                    <StackPanel>
+                        <ItemsControl ItemsSource="{Binding Bills}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <materialDesign:Card Margin="{DynamicResource BillsMargin}"
+                                             Padding="{DynamicResource AdminPadding}"
+                                             Background="{DynamicResource EmployeeCard}">
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="*" />
+                                            </Grid.ColumnDefinitions>
+
+                                            <Border Width="{DynamicResource BillIconHeight}"
+                                                    Height="{DynamicResource BillIconHeight}"
+                                                    Background="{DynamicResource ButtonBackgroundHover}"
+                                                    CornerRadius="{DynamicResource BillCornerRadius}"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Top"
+                                                    Margin="{DynamicResource BillMargin}"
+                                                    Grid.Column="0">
+                                                <TextBlock Text="{Binding Number}"
+                                                           Foreground="{DynamicResource FormForeground}"
+                                                           FontWeight="Bold"
+                                                           FontSize="{DynamicResource BillFontSize}"
+                                                           VerticalAlignment="Center"
+                                                           HorizontalAlignment="Center"/>
+                                            </Border>
+
+                                            <StackPanel Grid.Column="1">
+                                                <ItemsControl ItemsSource="{Binding Bill.Items}">
+                                                    <ItemsControl.ItemTemplate>
+                                                        <DataTemplate>
+                                                            <Grid Margin="{DynamicResource BillGridMargin}">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="2*" />
+                                                                    <ColumnDefinition Width="3*" />
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <TextBlock Grid.Column="0"
+                                                                       Text="{Binding Product.Name}"
+                                                                       FontSize="{DynamicResource BillFontSize}"
+                                                                       FontWeight="SemiBold"
+                                                                       VerticalAlignment="Center"
+                                                                       Margin="{DynamicResource TextBlockBillMargin}"
+                                                                       Foreground="{DynamicResource ButtonBackground}" />
+
+                                                                <StackPanel Grid.Column="1"
+                                                                            Orientation="Horizontal"
+                                                                            HorizontalAlignment="Center"
+                                                                            VerticalAlignment="Center"
+                                                                            Margin="{DynamicResource StackPanelBillMargin}">
+                                                                    <TextBlock Text="{Binding Quantity}"
+                                                                               FontSize="{DynamicResource BillInfoFontSize}"
+                                                                               Foreground="{DynamicResource ButtonBackground}" />
+                                                                    <TextBlock Text=" x "
+                                                                               FontSize="{DynamicResource BillInfoFontSize}"
+                                                                               Foreground="{DynamicResource ButtonBackground}" />
+                                                                    <TextBlock Text="{Binding UnitPrice, StringFormat='{}{0:N2} KM'}"
+                                                                               FontSize="{DynamicResource BillInfoFontSize}"
+                                                                               Foreground="{DynamicResource ButtonBackground}" />
+                                                                    <TextBlock Text=" = "
+                                                                               FontSize="{DynamicResource BillInfoFontSize}"
+                                                                               Foreground="{DynamicResource ButtonBackground}" />
+                                                                    <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0:N2} KM'}"
+                                                                               FontSize="{DynamicResource BillInfoFontSize}"
+                                                                               FontWeight="Bold"
+                                                                               Foreground="{DynamicResource ButtonBackground}" />
+                                                                </StackPanel>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </ItemsControl.ItemTemplate>
+                                                </ItemsControl>
+
+                                                <Separator Margin="{DynamicResource SeparatorMargin}"/>
+
+                                                <StackPanel Orientation="Vertical" HorizontalAlignment="Left" Margin="850,0,0,0">
+                                                    <StackPanel Orientation="Horizontal">
+                                                        <TextBlock Text="{DynamicResource Total}"
+                                                                   FontWeight="Bold"
+                                                                   FontSize="{DynamicResource BillFontSize}"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                        <TextBlock Text="{Binding Bill.TotalAmount, StringFormat=' {0:N2} KM'}"
+                                                                   FontSize="{DynamicResource BillFontSize}"
+                                                                   Margin="{DynamicResource TextBlockBillsMargin}"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal" Margin="{DynamicResource BillsViewMargin}">
+                                                        <TextBlock Text="{DynamicResource Date}"
+                                                                   FontWeight="Bold"
+                                                                   FontSize="{DynamicResource BillFontSize}"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                        <TextBlock Text="{Binding Bill.DateTime, StringFormat=' {0:dd.MM.yyyy HH:mm}'}"
+                                                                   FontSize="{DynamicResource BillFontSize}"
+                                                                   Margin="{DynamicResource TextBlockBillsMargin}"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                    </StackPanel>
+
+                                                    <StackPanel Orientation="Horizontal" Margin="{DynamicResource BillsViewMargin}">
+                                                        <TextBlock Text="{DynamicResource PaymentMethod}"
+                                                                   FontWeight="Bold"
+                                                                   FontSize="{DynamicResource BillFontSize}"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                        <TextBlock Text="{Binding Bill.PaymentMethod, Converter={StaticResource PaymentMethodConverter}}"
+                                                                   FontSize="{DynamicResource BillFontSize}"
+                                                                   Margin="{DynamicResource TextBlockBillsMargin}"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                    </StackPanel>
+
+                                                </StackPanel>
+
+                                            </StackPanel>
+                                        </Grid>
+                                    </materialDesign:Card>
+                                </DataTemplate>
+
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+
+                        <ContentControl Margin="0,60,0,0">
+                            <ContentControl.Style>
+                                <Style TargetType="ContentControl">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Bills.Count}" Value="0">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </ContentControl.Style>
+
+                            <materialDesign:Card Width="{DynamicResource AlertCircleWidth}" Height="{DynamicResource AlertCircleHeight}" Padding="{DynamicResource AdminPadding}"
+                                                 Background="{DynamicResource ButtonBackgroundHover}">
+                                <StackPanel>
+                                    <materialDesign:PackIcon Kind="AlertCircleOutline" Width="{DynamicResource BorderWidth}" Height="{DynamicResource BorderWidth}"
+                                                             HorizontalAlignment="Center"
+                                                             VerticalAlignment="Center"
+                                                             Foreground="{DynamicResource FormForeground}" />
+                                    <TextBlock Text="{DynamicResource NoFilterResults}"
+                                               FontSize="{DynamicResource SettingsFontSize}"
+                                               FontWeight="Bold"
+                                               Margin="{DynamicResource AdminStackPanelButtonMargin}"
+                                               HorizontalAlignment="Center"
+                                               Foreground="{DynamicResource ButtonForeground}" />
+                                </StackPanel>
+                            </materialDesign:Card>
+                        </ContentControl>
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>

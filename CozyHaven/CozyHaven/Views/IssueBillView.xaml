@@ -1,0 +1,376 @@
+﻿<UserControl x:Class="CozyHaven.Views.IssueBillView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:vm="clr-namespace:CozyHaven.ViewModels"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             Unloaded="UserControl_Unloaded">
+
+    <StackPanel>
+        <Border Background="{DynamicResource SettingsCardHeader}" 
+                CornerRadius="{DynamicResource SettingsCornerRadius}"
+                Padding="{DynamicResource SettingsPadding}"
+                Margin="{DynamicResource SettingsMargin}">
+            <TextBlock Text="{DynamicResource IssueBill}"
+                       Foreground="{DynamicResource ButtonForeground}"
+                       FontSize="{DynamicResource SettingsFontSize}"
+                       FontWeight="Bold"/>
+        </Border>
+
+        <materialDesign:Card Margin="{DynamicResource ImageOnMenuMargin}"
+                             Background="{DynamicResource SettingsCard}"
+                             Height="{DynamicResource SettingsCardHeight}"
+                             Padding="{DynamicResource CardFirstPadding}">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="400"/>
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Column="0" Margin="5">
+                        <materialDesign:Card Background="{DynamicResource BillIssueCard}"
+                                             Padding="{DynamicResource CategoriesPadding}"
+                                             Margin="0,0,0,5">
+                            <TextBlock Text="{DynamicResource AvailableProducts}"
+                                       FontWeight="Bold"
+                                       FontSize="{DynamicResource SettingsFontSize}"
+                                       Foreground="{DynamicResource MenuForeground}"
+                                       HorizontalAlignment="Left"
+                                       Margin="{DynamicResource TextBlockBillsMargin}"/>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Background="{DynamicResource BillIssueCard}"
+                                             Padding="{DynamicResource CategoriesPadding}"
+                                             Height="530">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding AvailableProducts}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <materialDesign:Card Margin="4"
+                                                                 Padding="6"
+                                                                 Background="{DynamicResource EmployeeCard}">
+                                                <StackPanel>
+                                                    <TextBlock Text="{Binding Name}" 
+                                                               FontSize="{DynamicResource BillFontSize}" 
+                                                               FontWeight="Bold"
+                                                               Foreground="{DynamicResource ButtonBackground}" 
+                                                               Margin="0,0,0,4" />
+
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="Auto" />
+                                                            <ColumnDefinition Width="*" />
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <Rectangle Grid.Column="0"
+                                                                   Width="{DynamicResource RectanglePictureWidth}"
+                                                                   Height="{DynamicResource RectanglePictureWidth}"
+                                                                   RadiusX="4"
+                                                                   RadiusY="4"
+                                                                   Margin="10,0,8,0"
+                                                                   Stroke="White"
+                                                                   StrokeThickness="1"
+                                                                   SnapsToDevicePixels="True"
+                                                                   RenderOptions.BitmapScalingMode="HighQuality">
+                                                            <Rectangle.Fill>
+                                                                <ImageBrush ImageSource="{Binding ImagePath}" Stretch="Uniform"/>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+
+                                                        <StackPanel Grid.Column="1"
+                                                                    VerticalAlignment="Center"
+                                                                    Margin="10,30,0,0">
+                                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
+                                                                <materialDesign:PackIcon Kind="Text"
+                                                                                         Width="{DynamicResource SearcIconDimension}" Height="{DynamicResource SearcIconDimension}"
+                                                                                         Margin="0,0,6,0"
+                                                                                         Foreground="{DynamicResource ButtonBackground}" />
+                                                                <TextBlock Text="{Binding Description}"
+                                                                           FontSize="{DynamicResource DescOnMenuFontSize}"
+                                                                           TextWrapping="Wrap"
+                                                                           MaxWidth="160"
+                                                                           Foreground="{DynamicResource ButtonBackground}" />
+                                                            </StackPanel>
+
+                                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
+                                                                <materialDesign:PackIcon Kind="PackageVariant"
+                                                                                         Width="{DynamicResource SearcIconDimension}" Height="{DynamicResource SearcIconDimension}"
+                                                                                         Margin="0,0,6,0"
+                                                                                         Foreground="{DynamicResource ButtonBackground}" />
+                                                                <TextBlock FontSize="{DynamicResource DescOnMenuFontSize}" Foreground="{DynamicResource ButtonBackground}">
+                                                                    <Run Text="{Binding AvailableQuantity}" />
+                                                                    <Run Text="{DynamicResource AvailableQuantityLabel}" />
+                                                                </TextBlock>
+                                                            </StackPanel>
+
+                                                            <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
+                                                                <materialDesign:PackIcon Kind="CashMultiple"
+                                                                                         Width="{DynamicResource SearcIconDimension}" Height="{DynamicResource SearcIconDimension}"
+                                                                                         Margin="0,0,6,0"
+                                                                                         Foreground="{DynamicResource ButtonBackground}" />
+                                                                <TextBlock Text="{Binding Price, StringFormat='{}{0:N2} KM'}"
+                                                                           FontSize="{DynamicResource DescOnMenuFontSize}"
+                                                                           Foreground="{DynamicResource ButtonBackground}" />
+                                                            </StackPanel>
+
+                                                            <Button Content="{DynamicResource Add}"
+                                                                    Style="{StaticResource RoundedButtonStyle}"
+                                                                    Command="{Binding DataContext.AddToBillCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                    CommandParameter="{Binding}"
+                                                                    Margin="0,6,5,5"
+                                                                    Padding="8,2"
+                                                                    FontSize="12"
+                                                                    HorizontalAlignment="Right"
+                                                                    Foreground="{DynamicResource ButtonForeground}" />
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </StackPanel>
+                                            </materialDesign:Card>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </materialDesign:Card>
+                    </StackPanel>
+
+                    <Grid Grid.Column="1" Margin="5">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <materialDesign:Card Background="{DynamicResource BillIssueCard}"
+                                 Padding="{DynamicResource CategoriesPadding}"
+                                 Margin="0,0,0,5"
+                                 Grid.Row="0">
+                            <TextBlock Text="{DynamicResource SelectedProducts}"
+                               FontWeight="Bold"
+                               FontSize="{DynamicResource SettingsFontSize}"
+                               Foreground="{DynamicResource MenuForeground}"
+                               HorizontalAlignment="Left"
+                               Margin="{DynamicResource TextBlockBillsMargin}"/>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Background="{DynamicResource BillIssueCard}"
+                                     Padding="{DynamicResource CategoriesPadding}"
+                                     Margin="0,0,0,5"
+                                     Grid.Row="1">
+                            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                <ItemsControl ItemsSource="{Binding SelectedProducts}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <materialDesign:Card Margin="4"
+                                                         Padding="6"
+                                                         Height="110"
+                                                         Background="{DynamicResource EmployeeCard}">
+                                                <Grid>
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Rectangle Grid.Column="0"
+                                                               Width="50"
+                                                               Height="50"
+                                                               RadiusX="4"
+                                                               RadiusY="4"
+                                                               Margin="4"
+                                                               Stroke="White"
+                                                               StrokeThickness="1"
+                                                               SnapsToDevicePixels="True"
+                                                               RenderOptions.BitmapScalingMode="HighQuality">
+                                                        <Rectangle.Fill>
+                                                            <ImageBrush ImageSource="{Binding Product.ImagePath}" Stretch="Uniform"/>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+
+                                                    <StackPanel Grid.Column="1"
+                                                            Margin="8,0,4,0"
+                                                            VerticalAlignment="Center">
+
+                                                        <TextBlock Text="{Binding Product.Name}" 
+                                                               FontSize="{DynamicResource BillInfoFontSize}"
+                                                               FontWeight="SemiBold"
+                                                               Foreground="{DynamicResource ButtonBackground}" 
+                                                               TextTrimming="CharacterEllipsis" />
+
+                                                        <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                                            <materialDesign:PackIcon Kind="Text"
+                                                             Width="{DynamicResource IssueBillIconWidth}" Height="{DynamicResource IssueBillIconWidth}"
+                                                             Margin="0,0,4,0"
+                                                             Foreground="{DynamicResource ButtonBackground}" />
+                                                            <TextBlock Text="{Binding Product.Description}"
+                                                                   FontSize="11"
+                                                                   MaxWidth="160"
+                                                                   TextTrimming="CharacterEllipsis"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                        </StackPanel>
+
+                                                        <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                                            <materialDesign:PackIcon Kind="CashMultiple"
+                                                             Width="{DynamicResource IssueBillIconWidth}" Height="{DynamicResource IssueBillIconWidth}"
+                                                             Margin="0,0,4,0"
+                                                             Foreground="{DynamicResource ButtonBackground}" />
+                                                            <TextBlock Text="{Binding Product.Price, StringFormat='{}{0:N2} KM'}"
+                                                                   FontSize="11"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                        </StackPanel>
+
+                                                        <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                                            <materialDesign:PackIcon Kind="Calculator"
+                                                                 Width="{DynamicResource IssueBillIconWidth}" Height="{DynamicResource IssueBillIconWidth}"
+                                                                 Margin="110,0,4,0"
+                                                                 Foreground="{DynamicResource ButtonBackground}" />
+                                                            <TextBlock Text="{Binding TotalPrice, StringFormat='{}{0:N2} KM'}"
+                                                                   FontSize="11"
+                                                                   Foreground="{DynamicResource ButtonBackground}" />
+                                                        </StackPanel>
+                                                    </StackPanel>
+
+                                                    <StackPanel Grid.Column="2"
+                                                                Orientation="Horizontal"
+                                                                VerticalAlignment="Center"
+                                                                HorizontalAlignment="Center"
+                                                                Margin="0,0,4,0">
+                                                        <Border BorderBrush="{DynamicResource ButtonBackground}" 
+                                                                BorderThickness="1" 
+                                                                CornerRadius="4">
+                                                            <Button Background="{DynamicResource ButtonBackground}" 
+                                                                    Foreground="{DynamicResource FormForeground}"
+                                                                    Padding="0"
+                                                                    Width="{DynamicResource IssueBillButtonWidth}" Height="{DynamicResource IssueBillButtonWidth}"
+                                                                    BorderThickness="0"
+                                                                    Command="{Binding DataContext.DecreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                    CommandParameter="{Binding}">
+                                                                <materialDesign:PackIcon Kind="Minus" Width="{DynamicResource IssueBillIconWidth}" Height="{DynamicResource IssueBillIconWidth}"/>
+                                                            </Button>
+
+
+                                                        </Border>
+
+                                                        <TextBlock Text="{Binding Quantity}"
+                                                           FontSize="{DynamicResource BillInfoFontSize}"
+                                                           FontWeight="Bold"
+                                                           Width="28"
+                                                           TextAlignment="Center"
+                                                           VerticalAlignment="Center"
+                                                           Foreground="{DynamicResource ButtonBackground}" />
+
+                                                        <Border BorderBrush="{DynamicResource ButtonBackground}" 
+                                                                BorderThickness="1" 
+                                                                CornerRadius="4">
+                                                            <Button Command="{Binding DataContext.IncreaseQuantityCommand, RelativeSource={RelativeSource AncestorType=UserControl}}"
+                                                                    CommandParameter="{Binding}"
+                                                                    Background="{DynamicResource ButtonBackground}"
+                                                                    Foreground="{DynamicResource FormForeground}"
+                                                                    Padding="{DynamicResource CategoriesCardPadding}"
+                                                                    Width="{DynamicResource IssueBillButtonWidth}" Height="{DynamicResource IssueBillButtonWidth}"
+                                                                    BorderThickness="0">
+                                                                <materialDesign:PackIcon Kind="Plus" Width="{DynamicResource IssueBillIconWidth}" Height="{DynamicResource IssueBillIconWidth}"/>
+                                                            </Button>
+                                                        </Border>
+                                                    </StackPanel>
+                                                </Grid>
+                                            </materialDesign:Card>
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </ScrollViewer>
+                        </materialDesign:Card>
+
+                        <materialDesign:Card Background="{DynamicResource BillIssueCard}"
+                                     Padding="{DynamicResource CategoriesPadding}"
+                                     Height="170"
+                                     Grid.Row="2">
+
+                            <StackPanel VerticalAlignment="Top"
+                                        HorizontalAlignment="Left"
+                                        Margin="{DynamicResource StackPanelMarginFirst}">
+
+                                <Grid Margin="{DynamicResource StackPanelMarginFirst}">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{DynamicResource CashRegister}"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource ButtonBackground}"
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,12,0" />
+
+                                    <ComboBox Grid.Column="1"
+                                              ItemsSource="{Binding CashRegisters}"
+                                              SelectedItem="{Binding SelectedCashRegister, Mode=TwoWay}"
+                                              DisplayMemberPath="Number"
+                                              Width="{DynamicResource SearchWidth}"
+                                              Style="{StaticResource MaterialDesignComboBox}"
+                                              HorizontalAlignment="Left"/>
+                                </Grid>
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="150" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <TextBlock Text="{DynamicResource PaymentMethod}"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource ButtonBackground}"
+                                               VerticalAlignment="Center"
+                                               Margin="0,0,12,0" />
+
+                                    <ComboBox Grid.Column="1"
+                                              ItemsSource="{Binding PaymentMethods}"
+                                              SelectedItem="{Binding SelectedPaymentMethodDisplay, Mode=TwoWay}"
+                                              DisplayMemberPath="DisplayName"
+                                              Width="{DynamicResource SearchWidth}"
+                                              Style="{StaticResource MaterialDesignComboBox}" 
+                                              HorizontalAlignment="Left"/>
+
+                                </Grid>
+                                <StackPanel Orientation="Horizontal"
+                                            HorizontalAlignment="Right"
+                                            Margin="0,10,10,10">
+                                    <TextBlock Text="{DynamicResource Total}"
+                                               FontSize="20"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource ButtonBackground}"
+                                               Margin="0,0,5,0"/>
+
+                                    <TextBlock Text="{Binding TotalAmount, StringFormat=' {0:N2} KM'}"
+                                               FontSize="20"
+                                               FontWeight="Bold"
+                                               Foreground="{DynamicResource ButtonBackground}" />
+                                </StackPanel>
+
+                                <Button Content="{DynamicResource CreateTheBill}"
+                                    Command="{Binding IssueBillCommand}" 
+                                    Style="{StaticResource RoundedButtonStyle}"
+                                    HorizontalAlignment="Center"
+                                    VerticalAlignment="Bottom"
+                                    Width="820"
+                                    Height="40"
+                                    Padding="12,4"
+                                    FontSize="14"
+                                    Foreground="{DynamicResource ButtonForeground}"/>
+                            </StackPanel>
+                        </materialDesign:Card>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>

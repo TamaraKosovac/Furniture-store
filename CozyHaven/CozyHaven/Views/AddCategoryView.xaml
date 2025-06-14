@@ -1,0 +1,45 @@
+﻿<Window x:Class="CozyHaven.Views.AddCategoryView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        Title="Dodaj kategoriju"
+        Height="190"
+        Width="370"
+        WindowStartupLocation="CenterScreen"
+        Background="Transparent"
+        AllowsTransparency="True"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown"
+        Icon="/Images/logo.ico">
+    <Border Background="{DynamicResource ButtonBackgroundHover}"
+            CornerRadius="{DynamicResource AdminCornerRadius}"
+            Padding="{DynamicResource AdminPadding}"
+            BorderThickness="{DynamicResource AdminThickness}"
+            BorderBrush="{DynamicResource ButtonBackgroundHover}">
+        <StackPanel Margin="{DynamicResource AdminStackPanelMargin}">
+
+            <TextBlock Text="{DynamicResource CategoryInfo}"
+                       FontWeight="Bold"
+                       FontSize="{DynamicResource SettingsFontSize}"
+                       Margin="{DynamicResource StackPanelMarginFirst}"
+                       Foreground="{DynamicResource FormForeground}"/>
+
+            <TextBox Text="{Binding CategoryName, UpdateSourceTrigger=PropertyChanged}" 
+                     materialDesign:HintAssist.Hint="{DynamicResource CategoryName}" 
+                     Style="{StaticResource AdminFormTextBoxStyle}" />
+
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="{DynamicResource AdminStackPanelButtonMargin}">
+                <Button Content="{DynamicResource Save}"
+                        Style="{StaticResource FormButtonStyle}"
+                        Command="{Binding SaveCategoryCommand}"
+                        Margin="{DynamicResource AdminCancelMargin}"/>
+                <Button Content="{DynamicResource Cancel}"
+                        Style="{StaticResource FormButtonStyle}"
+                        Margin="{DynamicResource AdminCancelMargin}"
+                        Click="Cancel_Click"/>
+            </StackPanel>
+        </StackPanel>
+    </Border>
+</Window>

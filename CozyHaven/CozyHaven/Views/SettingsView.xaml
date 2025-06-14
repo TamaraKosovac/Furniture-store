@@ -1,0 +1,98 @@
+﻿<UserControl x:Class="CozyHaven.Views.SettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:helpers="clr-namespace:CozyHaven.Helpers"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib">
+
+    <UserControl.Resources>
+        <helpers:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <StackPanel>
+        <Border Background="{DynamicResource SettingsCardHeader}" 
+                CornerRadius="{DynamicResource SettingsCornerRadius}"
+                Padding="{DynamicResource SettingsPadding}"
+                Margin="{DynamicResource SettingsMargin}">
+            <TextBlock Text="{DynamicResource Settings}"
+               Foreground="{DynamicResource ButtonForeground}"
+               FontSize="{DynamicResource SettingsFontSize}"
+               FontWeight="Bold"/>
+        </Border>
+
+        <materialDesign:Card Margin="{DynamicResource ImageOnMenuMargin}"
+                     Background="{DynamicResource SettingsCard}"
+                     Height="{DynamicResource SettingsCardHeight}">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            Command="{Binding ToggleThemeVisibilityCommand}"
+                            Margin="{DynamicResource StackPanelSettingsMargin}"
+                            HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Palette" Width="{DynamicResource EyeHeight}" Height="{DynamicResource EyeHeight}"
+                                 Margin="{DynamicResource SettingsIconMargin}" VerticalAlignment="Center"
+                                 Foreground="{DynamicResource ButtonBackground}"/>
+                            <TextBlock Text="{DynamicResource Theme}" VerticalAlignment="Center" Foreground="{DynamicResource ButtonBackground}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <ComboBox x:Name="ThemeComboBox"
+                              SelectedValue="{Binding SelectedTheme, Mode=TwoWay}"
+                              SelectedValuePath="Tag"
+                              Style="{StaticResource UnderlineComboBoxStyle}"
+                              Loaded="ThemeComboBox_Loaded"
+                              SelectionChanged="ThemeComboBox_SelectionChanged"
+                              Visibility="{Binding IsThemeComboBoxVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <ComboBoxItem Tag="Light" Content="{DynamicResource Light}" />
+                        <ComboBoxItem Tag="Gray" Content="{DynamicResource Gray}" />
+                        <ComboBoxItem Tag="Dark" Content="{DynamicResource Dark}" />
+                    </ComboBox>
+
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <Button Style="{StaticResource MaterialDesignFlatButton}"
+                            Command="{Binding ToggleLanguageVisibilityCommand}"
+                            Margin="{DynamicResource StackPanelSettingsMargin}"
+                            HorizontalAlignment="Left">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                            <materialDesign:PackIcon Kind="Translate" Width="{DynamicResource EyeHeight}" Height="{DynamicResource EyeHeight}"
+                                 Margin="{DynamicResource SettingsIconMargin}" VerticalAlignment="Center"
+                                 Foreground="{DynamicResource ButtonBackground}"/>
+                            <TextBlock Text="{DynamicResource Language}" VerticalAlignment="Center" Foreground="{DynamicResource ButtonBackground}"/>
+                        </StackPanel>
+                    </Button>
+
+                    <ComboBox x:Name="LanguageComboBox"
+                              SelectedValue="{Binding SelectedLanguage, Mode=TwoWay}"
+                              SelectedValuePath="Tag"
+                              Style="{StaticResource UnderlineComboBoxStyle}"
+                              Loaded="LanguageComboBox_Loaded"
+                              SelectionChanged="LanguageComboBox_SelectionChanged"
+                              Visibility="{Binding IsLanguageComboBoxVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                        <ComboBoxItem Tag="en" Content="{DynamicResource English}" />
+                        <ComboBoxItem Tag="sr" Content="{DynamicResource Serbian}" />
+                    </ComboBox>
+
+                </StackPanel>
+                <Button Style="{StaticResource MaterialDesignFlatButton}"
+                        Click="AdminAccount_Click"
+                        Margin="{DynamicResource StackPanelSettingsMargin}"
+                        HorizontalAlignment="Left"
+                        Visibility="{Binding ShowMyAccountButton, Converter={StaticResource BoolToVisibilityConverter}}">       
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                        <materialDesign:PackIcon Kind="AccountCircle" 
+                                 Width="{DynamicResource EyeHeight}" Height="{DynamicResource EyeHeight}" 
+                                 Margin="{DynamicResource SettingsIconMargin}" 
+                                 Foreground="{DynamicResource ButtonBackground}"
+                                 VerticalAlignment="Center"/>
+                        <TextBlock Text="{DynamicResource AdminAccount}" VerticalAlignment="Center"  Foreground="{DynamicResource ButtonBackground}"/>
+                    </StackPanel>
+                </Button>
+
+            </StackPanel>
+        </materialDesign:Card>
+    </StackPanel>
+</UserControl>
