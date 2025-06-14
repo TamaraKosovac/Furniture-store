@@ -64,7 +64,7 @@
                                                                FontSize="{DynamicResource BillFontSize}" 
                                                                FontWeight="Bold"
                                                                Foreground="{DynamicResource ButtonBackground}" 
-                                                               Margin="0,0,0,4" />
+                                                               Margin="{DynamicResource StackPanelEmployeesMargin}" />
 
                                                     <Grid>
                                                         <Grid.ColumnDefinitions>
@@ -93,7 +93,7 @@
                                                             <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
                                                                 <materialDesign:PackIcon Kind="Text"
                                                                                          Width="{DynamicResource SearcIconDimension}" Height="{DynamicResource SearcIconDimension}"
-                                                                                         Margin="0,0,6,0"
+                                                                                         Margin="{DynamicResource EmployeesMargin}"
                                                                                          Foreground="{DynamicResource ButtonBackground}" />
                                                                 <TextBlock Text="{Binding Description}"
                                                                            FontSize="{DynamicResource DescOnMenuFontSize}"
@@ -105,7 +105,7 @@
                                                             <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
                                                                 <materialDesign:PackIcon Kind="PackageVariant"
                                                                                          Width="{DynamicResource SearcIconDimension}" Height="{DynamicResource SearcIconDimension}"
-                                                                                         Margin="0,0,6,0"
+                                                                                         Margin="{DynamicResource EmployeesMargin}"
                                                                                          Foreground="{DynamicResource ButtonBackground}" />
                                                                 <TextBlock FontSize="{DynamicResource DescOnMenuFontSize}" Foreground="{DynamicResource ButtonBackground}">
                                                                     <Run Text="{Binding AvailableQuantity}" />
@@ -116,7 +116,7 @@
                                                             <StackPanel Orientation="Horizontal" Margin="0,0,0,2">
                                                                 <materialDesign:PackIcon Kind="CashMultiple"
                                                                                          Width="{DynamicResource SearcIconDimension}" Height="{DynamicResource SearcIconDimension}"
-                                                                                         Margin="0,0,6,0"
+                                                                                         Margin="{DynamicResource EmployeesMargin}"
                                                                                          Foreground="{DynamicResource ButtonBackground}" />
                                                                 <TextBlock Text="{Binding Price, StringFormat='{}{0:N2} KM'}"
                                                                            FontSize="{DynamicResource DescOnMenuFontSize}"
@@ -129,7 +129,7 @@
                                                                     CommandParameter="{Binding}"
                                                                     Margin="0,6,5,5"
                                                                     Padding="8,2"
-                                                                    FontSize="12"
+                                                                    FontSize="{DynamicResource IconFontSize}"
                                                                     HorizontalAlignment="Right"
                                                                     Foreground="{DynamicResource ButtonForeground}" />
                                                         </StackPanel>
@@ -364,7 +364,7 @@
                                     Width="820"
                                     Height="40"
                                     Padding="12,4"
-                                    FontSize="14"
+                                    FontSize="{DynamicResource BillFontSize}"
                                     Foreground="{DynamicResource ButtonForeground}"/>
                             </StackPanel>
                         </materialDesign:Card>

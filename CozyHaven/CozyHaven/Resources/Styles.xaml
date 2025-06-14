@@ -73,6 +73,8 @@
     <CornerRadius x:Key="BillCornerRadius">20</CornerRadius>
     <Thickness x:Key="BillMargin">0,0,10,0</Thickness>
     <sys:Double x:Key="BillFontSize">14</sys:Double>
+    <sys:Double x:Key="EmployeeFontSize">15</sys:Double>
+    <sys:Double x:Key="IconFontSize">12</sys:Double>
     <sys:Double x:Key="BillInfoFontSize">13</sys:Double>
     <Thickness x:Key="BillGridMargin">0,4</Thickness>
     <Thickness x:Key="TextBlockBillMargin">300,0,0,0</Thickness>
@@ -108,6 +110,14 @@
     <sys:Double x:Key="IssueBillIconWidth">14</sys:Double>
     <sys:Double x:Key="IssueBillButtonWidth">26</sys:Double>
     <Thickness x:Key="BillsViewMargin">0,4,0,0</Thickness>
+    <sys:Double x:Key="ButtonIconWidth">35</sys:Double>
+    <Thickness x:Key="CategoriesMargin">0,0,0,6</Thickness>
+    <Thickness x:Key="EmployeesMargin">0,0,6,0</Thickness>
+    <Thickness x:Key="PackIckonMargin">10,0,6,0</Thickness>
+    <Thickness x:Key="CategoryMargin">0,0,10,0</Thickness>
+    <Thickness x:Key="StackPanelEmployeesMargin">0,0,0,4</Thickness>
+    <sys:Double x:Key="PopupWidth">30</sys:Double>
+    <sys:Double x:Key="EllipseWidth">65</sys:Double>
 
 
     <Style x:Key="CustomTextBoxStyle" BasedOn="{StaticResource MaterialDesignFloatingHintTextBox}" TargetType="TextBox">

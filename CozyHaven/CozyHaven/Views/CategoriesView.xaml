@@ -57,7 +57,7 @@
                                  FontSize="{DynamicResource DescOnMenuFontSize}"
                                  Padding="{DynamicResource AdminPadding}"
                                  Style="{StaticResource MaterialDesignOutlinedTextBox}"
-                                 Margin="0,0,10,0"
+                                 Margin="{DynamicResource CategoryMargin}"
                                  VerticalAlignment="Center"
                                  materialDesign:TextFieldAssist.HasLeadingIcon="True"
                                  materialDesign:TextFieldAssist.LeadingIcon="Magnify"
@@ -65,11 +65,11 @@
 
                             <Button ToolTip="Dodaj kategoriju"
                                     Style="{StaticResource RoundedButtonStyle}"
-                                    Width="35" Height="35"
+                                    Width="{DynamicResource ButtonIconWidth}" Height="{DynamicResource ButtonIconWidth}"
                                     Click="AddCategory_Click"
                                     Margin="0,0,30,0">
                                 <materialDesign:PackIcon Kind="Plus"
-                                         Width="20" Height="20"
+                                         Width="{DynamicResource EyeHeight}" Height="{DynamicResource EyeHeight}"
                                          VerticalAlignment="Center"
                                          HorizontalAlignment="Center"/>
                             </Button>
@@ -149,7 +149,7 @@
                                                         Margin="{DynamicResource ProductCardBorderPadding}">
                                                 <materialDesign:PackIcon Kind="{Binding IconKind}"
                                                              Width="{DynamicResource CategoriesIconWidth}" Height="{DynamicResource CategoriesIconWidth}"
-                                                             Margin="0,0,0,6"
+                                                             Margin="{DynamicResource CategoriesMargin}"
                                                              HorizontalAlignment="Center"
                                                              Foreground="{DynamicResource ButtonBackground}"/>
                                                 <TextBlock Text="{Binding Name}"

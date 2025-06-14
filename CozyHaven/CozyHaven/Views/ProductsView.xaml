@@ -58,7 +58,7 @@
                                   Style="{StaticResource MaterialDesignOutlinedComboBox}"
                                   FontSize="{DynamicResource DescOnMenuFontSize}"
                                   Padding="{DynamicResource AdminPadding}"
-                                  Margin="0,0,10,0"
+                                  Margin="{DynamicResource CategoryMargin}"
                                   HorizontalAlignment="Right"
                                   VerticalAlignment="Center"
                                   materialDesign:HintAssist.Hint="{DynamicResource FilterByCategory}"
@@ -68,11 +68,11 @@
 
                             <Button ToolTip="Dodaj proizvod"
                                 Style="{StaticResource RoundedButtonStyle}"
-                                Width="35" Height="35"
+                                Width="{DynamicResource ButtonIconWidth}" Height="{DynamicResource ButtonIconWidth}"
                                 Click="OpenAddProductWindow_Click"
                                 Margin="0,0,50,0">
                                 <materialDesign:PackIcon Kind="Plus"
-                                         Width="20" Height="20"
+                                         Width="{DynamicResource EyeHeight}" Height="{DynamicResource EyeHeight}"
                                          VerticalAlignment="Center"
                                          HorizontalAlignment="Center"/>
                             </Button>
